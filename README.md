@@ -1,46 +1,43 @@
 # CRUD Mongo Node - Optional Homework
 
-Proyecto base en Node.js para practicar conexion a MongoDB con Mongoose y construir una API CRUD.
+TypeScript + MongoDB (Mongoose) CRUD API for the optional homework assignment.
 
-## Objetivo de la tarea
+## Assignment Goal
 
-Configurar una base de datos MongoDB y conectarla con Node.js para gestionar una coleccion de usuarios.
+Set up a MongoDB database and connect it to Node.js, then implement CRUD routes to manage users.
 
-Datos sugeridos de usuario:
+User fields:
 - first_name
 - last_name
 - email
 
-## Estado actual del repositorio
+## Tech Stack
 
-Completado:
-- Inicializacion del proyecto Node.js
-- Instalacion de dependencias (Express, Mongoose, dotenv, morgan, nodemon)
-- Conexion a MongoDB en src/config/db.js
-- Definicion de schema y modelo User en src/models/User.js
+- Node.js
+- Express
+- MongoDB + Mongoose
+- TypeScript
+- Winston (logging)
+- ESLint
+- Prettier
+- Nodemon
 
-Pendiente para terminar la entrega:
-- Crear controladores CRUD
-- Crear rutas CRUD
-- Levantar servidor Express y probar endpoints en Postman o Insomnia
-- Adjuntar capturas/video para evidencia
-
-## Requisitos
+## Requirements
 
 - Node.js 18+
 - npm
-- Cuenta de MongoDB Atlas
+- MongoDB Atlas account
 
-## Variables de entorno
+## Environment Variables
 
-Copia .env.example a .env y completa tu cadena real de conexion:
+Copy .env.example to .env and use your own MongoDB URI:
 
 ~~~env
 PORT=3000
 MONGO_URI=mongodb+srv://admin:pass@cluster0.xxxxx.mongodb.net/mynewdatabase?retryWrites=true&w=majority&appName=Cluster0
 ~~~
 
-## Instalacion
+## Installation
 
 ~~~bash
 npm install
@@ -49,31 +46,73 @@ npm install
 ## Scripts
 
 ~~~bash
+# Start in development mode with nodemon + TypeScript
 npm run dev
+
+# Compile TypeScript
+npm run build
+
+# Run compiled app
 npm start
+
+# Lint
+npm run lint
+
+# Auto-fix lint issues
+npm run lint:fix
+
+# Format all files
+npm run format
+
+# Check formatting
+npm run format:check
 ~~~
 
-## Estructura del proyecto
+## API Endpoints
+
+Base URL: http://localhost:3000
+
+- GET /api/users
+- POST /api/users
+- PUT /api/users/:id
+- DELETE /api/users/:id
+
+### Example JSON body (POST/PUT)
+
+~~~json
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "john.doe@example.com"
+}
+~~~
+
+## Project Structure
 
 ~~~text
 src/
   config/
-    db.js
-  models/
-    User.js
+    db.ts
   controllers/
+    userController.ts
+  models/
+    User.ts
   routes/
+    userRoutes.ts
+  utils/
+    logger.ts
+  app.ts
+  server.ts
 ~~~
 
-## Entrega sugerida
+## Suggested Submission
 
-1. Link del repositorio GitHub.
-2. Breve descripcion de la base de datos y coleccion.
-3. Evidencia en capturas o video:
-   - MongoDB Atlas con la base creada.
-   - Pruebas CRUD en Postman/Insomnia.
+1. GitHub repository link.
+2. Short description of your database and collection.
+3. Evidence screenshots or video showing:
+   - MongoDB Atlas database setup.
+   - CRUD route testing in Postman/Insomnia.
 
-## Repositorio remoto
+## Remote Repository
 
-El repositorio local esta vinculado a:
 https://github.com/Robbhedonic/crud-mongo-node.git
